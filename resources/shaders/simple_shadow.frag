@@ -12,6 +12,7 @@ layout (location = 0 ) in VS_OUT
   vec3 wNorm;
   vec3 wTangent;
   vec2 texCoord;
+  vec3 color;
 } surf;
 
 layout(binding = 0, set = 0) uniform AppData
