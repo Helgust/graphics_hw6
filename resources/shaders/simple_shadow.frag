@@ -36,8 +36,8 @@ void main()
 
   vec4 lightColor1 = vec4(surf.color);
   //vec4 lightColor2 = mix(dark_violet, chartreuse, abs(sin(Params.time)));
-  vec3 dop = vec3(surf.wPos*surf.wNorm);
-  vec4 lightColor2 = vec4(1/cos((tan(sin(dop))*20)),1.0f);
+  vec3 dop = vec3(surf.wPos*surf.wNorm+surf.wNorm+surf.wPos);
+  vec4 lightColor2 = vec4(cos(dop),1.0f);
 
   vec3 lightDir   = normalize(Params.lightPos - surf.wPos);
   vec4 lightColor = max(dot(surf.wNorm, lightDir), 0.0f) * lightColor2;

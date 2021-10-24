@@ -36,8 +36,8 @@ void main(void)
     vOut.wTangent = mat3(transpose(inverse(params.mModel))) * wTang.xyz;
     vOut.texCoord = vTexCoordAndTang.xy;
 
-    vec3 dop = vec3(vOut.wPos*vOut.wNorm);
-    vOut.color = 1/cos((tan(sin(dop))*20));
+    vec3 dop = vec3(vOut.wPos*vOut.wNorm+vOut.wNorm+vOut.wPos);
+    vOut.color = cos(dop);
 
     gl_Position   = params.mProjView * vec4(vOut.wPos, 1.0);
 }
